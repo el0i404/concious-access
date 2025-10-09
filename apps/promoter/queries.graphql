@@ -1,0 +1,167 @@
+mutation Register($email: String!, $password: String!, $organization: String!) {
+  register(email: $email, password: $password, organization: $organization) {
+    data {
+      id
+    }
+  }
+}
+
+mutation Login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    data {
+      isVerified
+      email
+      role
+      token
+    }
+    message
+    status
+  }
+}
+
+mutation CreateEvent($event: [EventInput]!) {
+  createEvent(event: $event) {
+    data {
+      guide_lines {
+        seq_id
+        id
+        title
+        type
+      }
+    }
+  }
+}
+
+mutation ForgotPassword($email: String!) {
+  forgotPassword(email: $email) {
+    email
+    id
+    success
+  }
+}
+
+mutation ResendCode($email: String!) {
+  resendCode(email: $email) {
+    success
+  }
+}
+
+mutation VerifyCode($verifyCodeId: ID!, $code: String!) {
+  verifyCode(id: $verifyCodeId, code: $code) {
+    message
+    success
+  }
+}
+
+mutation ResetPassword($email: String!, $password: String!) {
+  resetPassword(email: $email, password: $password) {
+    message
+    success
+  }
+}
+
+query GetEvents {
+  getEvents {
+    id
+    name
+    location
+    date
+    sharable_link
+    start_time
+    guide_lines {
+      seq_id
+      type
+      title
+      body
+      correct_answer
+      mcq_question_list {
+        value
+        label
+      }
+    }
+  }
+}
+
+mutation DeleteEvent($deleteEventId: ID!) {
+  deleteEvent(id: $deleteEventId) {
+    status
+    message
+  }
+}
+
+mutation scanQRCode($qrCodeNumber: String) {
+  scanQRCode(qr_code_number: $qrCodeNumber) {
+    qr_code_scanned_time
+    success
+    message
+  }
+}
+
+query GetEventWithoutAnswers($getEventWithoutAnswersId: ID!) {
+  getEventWithoutAnswers(id: $getEventWithoutAnswersId) {
+    id
+    name
+    location
+    date
+    start_time
+    guide_lines {
+      id
+      seq_id
+      type
+      title
+      body
+      mcq_question_list {
+        value
+        label
+      }
+    }
+    sharable_link
+  }
+}
+
+mutation SubmitResult($eventId: ID!, $eventResult: [EventResultInput!]!) {
+  submitResult(event_id: $eventId, event_result: $eventResult) {
+    event_id
+    is_passed
+    is_qr_code_scanned
+    qr_code_number
+    createdAt
+  }
+}
+
+query GetEvent($getEventId: ID!) {
+  getEvent(id: $getEventId) {
+    id
+    name
+    sharable_link
+    start_time
+    location
+    guide_lines {
+      body
+      correct_answer
+      id
+      mcq_question_list {
+        label
+        value
+      }
+      seq_id
+      title
+      type
+    }
+    date
+    user {
+      email
+      first_name
+      id
+      last_name
+      organization
+    }
+  }
+}
+
+mutation UpdateEvent($updateEventId: ID!, $event: EventUpdate!) {
+  updateEvent(id: $updateEventId, event: $event) {
+    message
+    status
+  }
+}
