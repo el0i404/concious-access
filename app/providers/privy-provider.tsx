@@ -47,7 +47,7 @@ export default function PrivyProvider({
           landingHeader: "This is Conscious access",
         },
         externalWallets: { solana: { connectors: toSolanaWalletConnectors() } },
-        loginMethods: ["email", "wallet"],
+        loginMethods: ["email", "wallet", "google", "github"],
       }}
     >
       {children}
