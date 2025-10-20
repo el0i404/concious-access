@@ -1,9 +1,0 @@
-export { default as EventCard } from './event-card/event-card';
-export { default as EventCardModal } from './event-card-modal/event-card-modal';
-export { default as HorizontalNav } from './horizontal-nav/horizontal-nav';
-export { default as Layout } from './layout/layout';
-export { default as Modal } from './modal/modal';
-export { default as LayoutLogin } from './layout-login/layout-login';
-export { default as MultipleChoice } from './multiple-choice/multiple-choice';
-export { default as ShortText } from './short-text/short-text';
-export { default as DeleteConfirmation } from './delete-confirmation/delete-confirmation';
