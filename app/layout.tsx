@@ -34,9 +34,13 @@ export default function RootLayout({
       <body
         style={{
           background: gradient,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
         }}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* {children} */}
         <PrivyProvider>{children}</PrivyProvider>
       </body>
     </html>

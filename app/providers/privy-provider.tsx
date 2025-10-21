@@ -15,7 +15,6 @@ export default function PrivyProvider({
       //   clientId={process.env.PRIVY_APP_SECRET ?? ""}
       config={{
         // Create embedded wallets for users who don't have a wallet
-
         embeddedWallets: {
           ethereum: {
             createOnLogin: "users-without-wallets",
