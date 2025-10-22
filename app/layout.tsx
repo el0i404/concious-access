@@ -32,12 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{
-          background: gradient,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-        }}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* {children} */}

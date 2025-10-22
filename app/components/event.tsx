@@ -1,6 +1,22 @@
+import ThreeDots from "../icons/three-dots";
+
 const Event = () => {
   return (
-    <div className="flex h-20 p-1.5 border-[1px] border-[#d3d3d3] shadow-lg rounded-2xl bg-[#BDE0FE] opacity-80"></div>
+    <div
+      style={{ boxShadow: "0px 1px 10px 2px rgba(0, 0, 0, 0.25)" }}
+      className="event-box"
+    >
+      <div className="flex justify-between">
+        <span className="text-black font-bold">EVENT A</span>
+        <button type="button">
+          <ThreeDots width="20px" height="20px" />
+        </button>
+      </div>
+      <div className="flex justify-between">
+        <span className="event-box-subtitle">Lorem</span>
+        <span className="event-box-subtitle">Berlin - 24 OCT</span>
+      </div>
+    </div>
   );
 };
 
