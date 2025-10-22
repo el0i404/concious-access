@@ -1,4 +1,4 @@
-const ThreeDots = (props) => (
+const ThreeDots = (props: any) => (
   <svg
     role="img"
     aria-label="three-dots"
