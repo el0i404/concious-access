@@ -8,6 +8,14 @@ export default function Login() {
   const router = useRouter();
 
   useEffect(() => {
+    if (!authenticated) {
+      login;
+    } else {
+      router.replace("/overview");
+    }
+  }, []);
+
+  useEffect(() => {
     if (ready && authenticated) {
       router.replace("/overview"); // Redirect if not logged in
     }
