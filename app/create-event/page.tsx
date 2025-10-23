@@ -25,11 +25,11 @@ export default function Overview() {
   return (
     <div className="flex flex-col h-dvh justify-center items-center">
       <div className="create-test-box">
-        <div className="flex w-60 justify-between p-4">
+        <div className="flex w-60 justify-between p-4 items-center">
           <Link href="/overview">
             <BackChevron style={{ width: "24px", height: "24px" }} />
           </Link>
-          <span className="font-extrabold text-black">NEW EVENT</span>
+          <span className="font-extrabold text-black text-2xl">NEW EVENT</span>
         </div>
         <div className="flex flex-col justify-between h-[310px]">
           <Field>
