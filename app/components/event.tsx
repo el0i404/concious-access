@@ -9,7 +9,7 @@ const Event = () => {
       <div className="flex justify-between">
         <span className="text-black font-bold">EVENT A</span>
         <button type="button">
-          <ThreeDots width="20px" height="20px" />
+          <ThreeDots style={{ width: "20px", height: "20px" }} />
         </button>
       </div>
       <div className="flex justify-between">

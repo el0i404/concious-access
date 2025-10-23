@@ -1,17 +1,19 @@
 "use client";
 import { usePrivy } from "@privy-io/react-auth";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Login() {
   const { ready, authenticated, user, login, logout } = usePrivy();
+  const router = useRouter();
 
-  //   if (!ready) return <div>Loading Privy...</div>;
+  useEffect(() => {
+    if (ready && authenticated) {
+      router.replace("/overview"); // Redirect if not logged in
+    }
+  }, [ready, authenticated, login, router]);
 
-  //   useEffect(() => {
-  //     if (ready && !authenticated) {
-  //       login();
-  //     }
-  //   }, [ready, authenticated, login]);
+  if (!ready) return <div>Loading Privy...</div>;
 
   return (
     <div>

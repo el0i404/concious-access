@@ -1,0 +1,52 @@
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import Event from "../components/event";
+
+export default function Overview() {
+  const { ready, authenticated, user } = usePrivy();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (ready && !authenticated) {
+      router.replace("/login"); // Redirect if not logged in
+    }
+  }, [ready, authenticated, router]);
+
+  if (!ready) return <div>Loading...</div>;
+  if (!authenticated) return null; // Prevent flicker
+
+  return (
+    <div className="flex flex-col">
+      <nav className="sticky top-0 h-16 border-2 z-10 bg-white overflow-y-hidden p-5 text-center">
+        <span className="gradient-text font-extrabold text-xl">
+          CONSCIOUS ACCESS
+        </span>
+      </nav>
+      <div className="flex flex-col overflow-y-auto p-5 gap-5 justify-center items-center">
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+        <Event />
+      </div>
+      <nav className="fixed bottom-0 h-16 border-2 z-10 bg-white overflow-y-hidden text-center flex justify-center items-center w-full">
+        <Link
+          href="/create-event"
+          type="button"
+          //   onClick={() => startTransition("/create-event")}
+          className="text-black  font-extrabold text-xl border-2 rounded-2xl p-1.5"
+        >
+          CREATE EVENT
+        </Link>
+      </nav>
+    </div>
+  );
+}

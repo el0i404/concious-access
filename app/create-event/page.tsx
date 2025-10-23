@@ -2,32 +2,33 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Event from "../components/event";
 import { Field, Label } from "../components/fieldset";
 import { Input } from "../components/input";
-import { useRouteTransition } from "../components/route-transition";
+
 import BackChevron from "../icons/back-chevron";
 
 export default function Overview() {
   const { ready, authenticated, user, login, logout } = usePrivy();
-  const { startTransition } = useRouteTransition();
+  const router = useRouter();
+  console.log("authenticated", authenticated);
+  useEffect(() => {
+    if (ready && !authenticated) {
+      router.replace("/login"); // Redirect if not logged in
+    }
+  }, [ready, authenticated, router]);
 
-  //   if (!ready) return <div>Loading Privy...</div>;
-
-  //   useEffect(() => {
-  //     if (ready && !authenticated) {
-  //       login();
-  //     }
-  //   }, [ready, authenticated, login]);
+  if (!ready) return <div>Loading...</div>;
+  if (!authenticated) return null; // Prevent flicker
 
   return (
     <div className="flex flex-col h-dvh justify-center items-center">
       <div className="create-test-box">
         <div className="flex w-60 justify-between p-4">
-          <button type="button" onClick={() => startTransition("/overview")}>
-            <BackChevron width="24px" />
-          </button>
+          <Link href="/overview">
+            <BackChevron style={{ width: "24px", height: "24px" }} />
+          </Link>
           <span className="font-extrabold text-black">NEW EVENT</span>
         </div>
         <div className="flex flex-col justify-between h-[310px]">
