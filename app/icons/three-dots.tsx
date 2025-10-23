@@ -1,4 +1,4 @@
-const ThreeDots = (props: any) => (
+const ThreeDots = (props: React.HTMLAttributes<SVGElement>) => (
   <svg
     role="img"
     aria-label="three-dots"
