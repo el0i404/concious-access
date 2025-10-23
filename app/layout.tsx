@@ -36,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="relative overflow-hidden">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* <AnimationLayout> {children}</AnimationLayout> */}
         {/* <RouteTransitionProvider>{children}</RouteTransitionProvider> */}
         <PrivyProvider>{children}</PrivyProvider>
