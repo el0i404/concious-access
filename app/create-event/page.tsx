@@ -61,7 +61,7 @@ export default function Overview() {
             </Field>
             <span className="font-extrabold mt-5">until</span>
             <Field className="w-[40%] items-end text-right">
-              <Label htmlFor="date" className="text-gray-400 text-md">
+              <Label htmlFor="date" className="text-gray-400 text-[12px]">
                 (optional)
               </Label>
               <Input className="border rounded-xl" type="date" name="date" />
@@ -76,7 +76,7 @@ export default function Overview() {
             </Field>
             <span className="font-extrabold mt-5">until</span>
             <Field className="w-[40%] text-right">
-              <Label htmlFor="time" className="text-gray-400">
+              <Label htmlFor="time" className="text-gray-400 text-[12px]">
                 (optional)
               </Label>
               <Input className="border rounded-xl" type="time" name="time" />
