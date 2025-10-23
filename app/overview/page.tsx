@@ -21,7 +21,7 @@ export default function Overview() {
 
   return (
     <div className="flex flex-col">
-      <nav className="sticky top-0 h-16 border-2 z-10 bg-white overflow-y-hidden p-5 text-center">
+      <nav className="sticky top-0 h-16  z-10 bg-white overflow-y-hidden p-5 text-center">
         <span className="gradient-text font-extrabold text-xl">
           CONSCIOUS ACCESS
         </span>
@@ -37,7 +37,7 @@ export default function Overview() {
         <Event />
         <Event />
       </div>
-      <nav className="fixed bottom-0 h-16 border-2 z-10 bg-white overflow-y-hidden text-center flex justify-center items-center w-full">
+      <nav className="fixed bottom-0 h-16 z-10 bg-white overflow-y-hidden text-center flex justify-center items-center w-full">
         <Link
           href="/create-event"
           type="button"
