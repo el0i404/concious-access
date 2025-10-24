@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { createContext, type ReactNode, useContext, useState } from "react";
+import TicketIcon from "../icons/ticket-icon";
 
 const TransitionContext = createContext<{ navigate: (href: string) => void }>({
   navigate: () => {},
@@ -25,12 +26,12 @@ export default function TransitionProvider({
     // Step 2: Wait for overlay animation to cover screen
     setTimeout(() => {
       router.push(href);
-    }, 800); // match overlay enter duration
+    }, 600); // match overlay enter duration
 
     // Step 3: Hide overlay after route has changed
     setTimeout(() => {
       setOverlayVisible(false);
-    }, 1400); // enter (0.6s) + exit (0.6s)
+    }, 1200); // enter (0.6s) + exit (0.6s)
   };
 
   return (
@@ -46,24 +47,39 @@ export default function TransitionProvider({
             initial={{ y: "100%" }}
             animate={{
               y: "0%",
-              transition: { duration: 0.6, ease: "easeInOut" },
+              transition: { duration: 0.4, ease: "easeInOut" },
             }}
             exit={{
               y: "-100%",
-              transition: { duration: 0.6, ease: "easeInOut" },
+              transition: { duration: 0.4, ease: "easeInOut" },
             }}
           >
             <motion.div
-              className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold"
+              className="absolute inset-0 flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{
                 opacity: 1,
                 scale: 1,
                 transition: { duration: 0.4, delay: 0.2 },
               }}
-              exit={{ opacity: 0, scale: 1.2, transition: { duration: 0.3 } }}
+              exit={{
+                opacity: 0,
+                scale: 1.2,
+                transition: { duration: 0.3 },
+              }}
             >
-              GP
+              {/* Example: Spinning icon */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.2,
+                  ease: "linear",
+                }}
+                className="text-white text-4xl"
+              >
+                <TicketIcon />
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
