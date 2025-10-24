@@ -16,7 +16,7 @@ export default function Home() {
         <span className="text-[12px] gradient-text-secondary">Become</span>
         <span className="gradient-text font-extrabold">CONSCIOUS ACCESS</span>
       </header>
-      <main className="flex flex-col  row-start-2 items-center">
+      <main className="flex flex-col  items-center">
         <div className="flex gap-4 items-center flex-col">
           <span className="gradient-text font-extrabold text-2xl">
             SEAMLES ACCESS

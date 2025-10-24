@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@privy-io/react-auth": "^3.3.0",
     "@solana-program/memo": "^0.8.0",
     "@solana-program/system": "^0.8.1",

@@ -32,6 +32,7 @@ body {
   font-family: Outfit, sans-serif;
   height: 100%;
   color: black;
+  transition: background 0.4s ease;
 }
 
 .gradient-text {

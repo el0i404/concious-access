@@ -3,16 +3,18 @@
 import { usePrivy } from "@privy-io/react-auth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import EventModal from "../components/event-modal";
 import { Field, Label } from "../components/fieldset";
 import { Input } from "../components/input";
-
 import BackChevron from "../icons/back-chevron";
 
 export default function Overview() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const { ready, authenticated, user, login, logout } = usePrivy();
   const router = useRouter();
   console.log("authenticated", authenticated);
+
   useEffect(() => {
     if (ready && !authenticated) {
       router.replace("/login"); // Redirect if not logged in
@@ -31,6 +33,7 @@ export default function Overview() {
           </Link>
           <span className="font-extrabold text-black text-2xl">NEW EVENT</span>
         </div>
+
         <div className="flex flex-col justify-between h-[310px]">
           <Field>
             <Label htmlFor="name" className="text-black font-extrabold">

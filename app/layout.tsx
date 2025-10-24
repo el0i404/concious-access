@@ -6,6 +6,8 @@ import "./globals.css";
 
 import { usePathname } from "next/navigation";
 import AnimationLayout from "./components/animation-layout";
+import TransitionLayout from "./components/transition-layout";
+import TransitionProvider from "./components/transition-provider";
 import PrivyProvider from "./providers/privy-provider";
 
 const geistSans = Geist({
@@ -39,9 +41,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <AnimationLayout> {children}</AnimationLayout> */}
+        <PrivyProvider>
+          {" "}
+          <TransitionProvider> {children}</TransitionProvider>
+        </PrivyProvider>
         {/* <RouteTransitionProvider>{children}</RouteTransitionProvider> */}
-        <PrivyProvider>{children}</PrivyProvider>
+        {/* <PrivyProvider>{children}</PrivyProvider> */}
       </body>
     </html>
   );
